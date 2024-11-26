@@ -1,7 +1,30 @@
 const express = require("express");
-const users = require("./user.routes");
+
+const { userLogin } = require("../controllers/user_controller");
+const {
+  getPatientList,
+  submitPatinetDetails,
+} = require("../controllers/patient_controller");
+const {
+  addQuestions,
+  getQuestionList,
+} = require("../controllers/question_controller");
+const { authentication } = require("../middlewares/common_middleware");
+const router = express.Router();
 
 // USER - authentication api main route
-router.use("/user", users);
+router.post("/login", userLogin);
 
-const router = express.Router();
+// QUESTION - add question api main route
+router.post("/addque", addQuestions);
+
+// QUESTION - get question api main route
+router.get("/getque", authentication, getQuestionList);
+
+// PATIENT - submit question details api main route
+router.get("/submit", authentication, submitPatinetDetails);
+
+// PATIENT - get patient list api main route
+router.get("/getpatientlist", authentication, getPatientList);
+
+module.exports = router;

@@ -1,6 +1,6 @@
 const {
   HTTPStatus: { NOT_FOUND, INTERNAL_SERVER },
-} = require("../helper/common_helper");
+} = require("../helpers/common_helper");
 
 // 404 - not found error handler
 // eslint-disable-next-line no-unused-vars

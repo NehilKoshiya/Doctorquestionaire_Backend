@@ -1,12 +1,14 @@
 const express = require("express");
 var mainRouter = require("./routes/main.routes");
-const { notFoundRoute, errorHandler } = require("./middleware/error_handler");
+const { notFoundRoute, errorHandler } = require("./middlewares/error_handler");
 const cors = require("cors");
 
 require("dotenv").config();
 require("./database/database_connection");
 
 const app = express();
+
+app.use(express.json());
 
 app.use(express.urlencoded({ extended: false }));
 

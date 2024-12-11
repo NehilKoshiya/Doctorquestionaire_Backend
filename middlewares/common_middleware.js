@@ -7,8 +7,7 @@ const {
 
 authentication = async (req, res, next) => {
   try {
-    const token = req.headers.authorization.split(" ")[2];
-    console.log("token :>> ", token);
+    const token = req.headers.authorization.split(" ")[1];
     if (!token)
       return res
         .status(FORBIDDEN)
